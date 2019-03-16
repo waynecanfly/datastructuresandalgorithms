@@ -77,6 +77,21 @@ class SingleLinkList(object):
 
     def remove(self, item):
         """删除元素"""
+        """定义两个游标，一个指向当前节点，另一个指向当前节点的前一个节点"""
+        cur = self.__head
+        pre = None
+        while cur != None:
+            if cur.elem == item:
+                # 先判断此节点是不是头结点
+                # 头结点
+                if cur == self.__head:
+                    self.__head = cur.next
+                else:
+                    pre.next = cur.next
+                break
+            else:
+                pre = cur
+                cur = cur.next
 
 
     def search(self, item):
